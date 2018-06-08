@@ -18,33 +18,19 @@
 import * as tfc from '@tensorflow/tfjs-core';
 import {MobileNet} from './mobilenet';
 
-// const cat = document.getElementById('cat');
-var player = document.getElementById('player');
 var snapshotCanvas = document.getElementById('snapshot');
 var captureButton = document.getElementById('capture');
 var imageObj = new Image();
 
-
-var handleSuccess = function(stream) {
-  // Attach the video stream to the video element and autoplay.
-  player.srcObject = stream;
-};
-
-captureButton.addEventListener('click', function() {
+captureButton.addEventListener('click', async () => {
+  var player = document.getElementsByTagName('video')[0];  
   var context = snapshot.getContext('2d');
-  // Draw the video frame to the canvas.
+
   context.drawImage(player, 0, 0, snapshotCanvas.width,
       snapshotCanvas.height);
   imageObj.src = snapshotCanvas.toDataURL();
-  // here is the most important part because if you dont replace you will get a DOM 18 exception.
-});
 
-navigator.mediaDevices.getUserMedia({video: true})
-    .then(handleSuccess);
-
-imageObj.onload = async () => {
   const resultElement = document.getElementById('result');
-
   resultElement.innerText = 'Loading MobileNet...';
 
   const mobileNet = new MobileNet();
@@ -70,4 +56,4 @@ imageObj.onload = async () => {
   console.timeEnd('Subsequent predictions');
 
   mobileNet.dispose();
-};
+});
