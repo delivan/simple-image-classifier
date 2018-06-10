@@ -16,15 +16,15 @@
  */
 
 export const IMAGENET_CLASSES = {
-    0: 'pen',
-    1: 'desk',
-    2: 'laptop',
-    3: 'mouse',
-    4: 'chair',
-    5: 'smartphone',
-    6: 'note',
-    7: 'monitor',
-    8: 'backpack',
-    9: 'keyboard',
+    0: 'backpack',
+    1: 'monitor',
+    2: 'note',
+    3: 'chair',
+    4: 'keyboard',
+    5: 'mouse',
+    6: 'pen',
+    7: 'smartphone',
+    8: 'laptop',
+    9: 'desk',
 };
   

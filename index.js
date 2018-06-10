@@ -23,6 +23,7 @@ var captureButton = document.getElementById('capture');
 var imageObj = new Image();
 
 captureButton.addEventListener('click', async () => {
+  $("#result-wrap").css("display", "block");
   var player = document.getElementsByTagName('video')[0];  
   var context = snapshot.getContext('2d');
 
@@ -42,7 +43,8 @@ captureButton.addEventListener('click', async () => {
 
   console.time('First prediction');
   let result = mobileNet.predict(pixels);
-  const topK = mobileNet.getTopKClasses(result, 3);
+  const topK = mobileNet.getTopKClasses(result, 1);
+  console.log(topK[0].label);
   console.timeEnd('First prediction');
 
   resultElement.innerText = '';
@@ -50,10 +52,11 @@ captureButton.addEventListener('click', async () => {
     resultElement.innerText += `${x.value.toFixed(3)}: ${x.label}\n`;
   });
 
-  console.time('Subsequent predictions');
-  result = mobileNet.predict(pixels);
-  mobileNet.getTopKClasses(result, 3);
-  console.timeEnd('Subsequent predictions');
+  // console.time('Subsequent predictions');
+  // result = mobileNet.predict(pixels);
+  // const secondTopK = mobileNet.getTopKClasses(result, 1);
+  // console.log(secondTopK[0].label);
+  // console.timeEnd('Subsequent predictions');
 
   mobileNet.dispose();
 });
