@@ -3,26 +3,26 @@
     {
       "bufferView": 1,
       "componentType": 5126,
-      "count": 220,
+      "count": 128,
       "max": [
-        0.77266997098922729,
-        0.5,
-        0
+        1,
+        1.2106499671936035,
+        0.15000000596046448
       ],
       "min": [
-        0.038830000907182693,
-        -0.5,
-        -0.09035000205039978
+        -1,
+        -1.2108299732208252,
+        -0.15000000596046448
       ],
       "type": "VEC3"
     },
     {
       "bufferView": 1,
-      "byteOffset": 2640,
+      "byteOffset": 1536,
       "componentType": 5126,
-      "count": 220,
+      "count": 128,
       "max": [
-        0.99999916553497314,
+        1,
         1,
         1
       ],
@@ -36,9 +36,9 @@
     {
       "bufferView": 0,
       "componentType": 5125,
-      "count": 402,
+      "count": 354,
       "max": [
-        219
+        127
       ],
       "min": [
         0
@@ -47,45 +47,45 @@
     },
     {
       "bufferView": 1,
-      "byteOffset": 5280,
+      "byteOffset": 3072,
       "componentType": 5126,
-      "count": 68,
+      "count": 12,
       "max": [
-        0.75767999887466431,
-        0.5,
-        -0.011490000411868095
+        0.94999998807907104,
+        1.1595699787139893,
+        0.11999999731779099
       ],
       "min": [
-        0.049440000206232071,
-        -0.5,
-        -0.078869998455047607
+        -0.94999998807907104,
+        -1.1658099889755249,
+        -0.11500000208616257
       ],
       "type": "VEC3"
     },
     {
       "bufferView": 1,
-      "byteOffset": 6096,
+      "byteOffset": 3216,
       "componentType": 5126,
-      "count": 68,
+      "count": 12,
       "max": [
         1,
         1,
-        0.0033400151878595352
+        -0
       ],
       "min": [
-        -0,
+        0,
         -1,
-        0
+        -0
       ],
       "type": "VEC3"
     },
     {
       "bufferView": 0,
-      "byteOffset": 1608,
+      "byteOffset": 1416,
       "componentType": 5125,
-      "count": 210,
+      "count": 18,
       "max": [
-        67
+        11
       ],
       "min": [
         0
@@ -95,26 +95,26 @@
   ],
   "asset": {
     "extras": {
-      "author": "Eric Fan (https://sketchfab.com/ericfan1992)",
+      "author": "Jiří Kuba (https://sketchfab.com/kuba.jirka)",
       "license": "CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)",
-      "source": "https://sketchfab.com/models/fc1b43e332d147edb7dca8f89cffa4d7",
+      "source": "https://sketchfab.com/models/003e4c4df7de41758ba124d32101bcef",
       "title": "Book"
     },
-    "generator": "Sketchfab-3.18.5",
+    "generator": "Sketchfab-3.18.6",
     "version": "2.0"
   },
   "bufferViews": [
     {
       "buffer": 0,
-      "byteLength": 2448,
+      "byteLength": 1488,
       "byteOffset": 0,
       "name": "floatBufferViews",
       "target": 34963
     },
     {
       "buffer": 0,
-      "byteLength": 6912,
-      "byteOffset": 2448,
+      "byteLength": 3360,
+      "byteOffset": 1488,
       "byteStride": 12,
       "name": "floatBufferViews",
       "target": 34962
@@ -122,7 +122,7 @@
   ],
   "buffers": [
     {
-      "byteLength": 9360,
+      "byteLength": 4848,
       "uri": "scene.bin"
     }
   ],
@@ -134,12 +134,12 @@
         0,
         0
       ],
-      "name": "Architexture",
+      "name": "BookMaterial",
       "pbrMetallicRoughness": {
         "baseColorFactor": [
-          0.80000001190000003,
-          0.80000001190000003,
-          0.80000001190000003,
+          0.80001294609999996,
+          0.38873776789999998,
+          0.1347600222,
           1
         ],
         "metallicFactor": 0,
@@ -153,12 +153,12 @@
         0,
         0
       ],
-      "name": "Bookpage",
+      "name": "BookPaperMaterial",
       "pbrMetallicRoughness": {
         "baseColorFactor": [
-          1,
-          1,
-          1,
+          0.91139179469999998,
+          0.91139179469999998,
+          0.91139179469999998,
           1
         ],
         "metallicFactor": 0,
@@ -168,7 +168,7 @@
   ],
   "meshes": [
     {
-      "name": "Architexture_0",
+      "name": "Book_0",
       "primitives": [
         {
           "attributes": {
@@ -182,7 +182,7 @@
       ]
     },
     {
-      "name": "Architexture_1",
+      "name": "Book_1",
       "primitives": [
         {
           "attributes": {
@@ -226,15 +226,15 @@
         4,
         5
       ],
-      "name": "Architexture"
+      "name": "Book"
     },
     {
       "mesh": 0,
-      "name": "Architexture_0"
+      "name": "Book_0"
     },
     {
       "mesh": 1,
-      "name": "Architexture_1"
+      "name": "Book_1"
     }
   ],
   "scene": 0,

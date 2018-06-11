@@ -32,7 +32,7 @@ iknowButton.addEventListener('click', function() {
 captureButton.addEventListener('click', async () => {
   contentElement.style.display = "none";
   loaderElement.style.display = "block";
-  
+
   var player = document.getElementsByTagName('video')[0];  
   var context = snapshot.getContext('2d');
 
@@ -63,6 +63,20 @@ captureButton.addEventListener('click', async () => {
 
   loaderElement.style.display = "none";
   var model = document.getElementById("3d-model");
+  switch(topK[0].label) {
+    case 'keyboard', 'mouse', 'pen':
+      model.setAttribute("scale", "0.1 0.1 0.1");
+      break;
+    case 'smartphone':
+      model.setAttribute("scale", "0.5 0.5 0.5");
+      break;
+    case 'monitor':
+      model.setAttribute("scale", "0.03 0.03 0.03");
+      break;
+    default:
+      model.setAttribute("scale", "1 1 1");
+      break;
+  }
   model.setAttribute("src", "#" + topK[0].label)
 
   mobileNet.dispose();
