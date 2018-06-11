@@ -20,10 +20,19 @@ import {MobileNet} from './mobilenet';
 
 var snapshotCanvas = document.getElementById('snapshot');
 var captureButton = document.getElementById('capture');
+var contentElement = document.getElementById('content');
+var iknowButton = document.getElementById('iknow');
+var loaderElement = document.getElementById('loader');
 var imageObj = new Image();
 
+iknowButton.addEventListener('click', function() {
+  contentElement.style.display = "none";
+});
+
 captureButton.addEventListener('click', async () => {
-  $("#result-wrap").css("display", "block");
+  contentElement.style.display = "none";
+  loaderElement.style.display = "block";
+  
   var player = document.getElementsByTagName('video')[0];  
   var context = snapshot.getContext('2d');
 
@@ -31,8 +40,8 @@ captureButton.addEventListener('click', async () => {
       snapshotCanvas.height);
   imageObj.src = snapshotCanvas.toDataURL();
 
-  const resultElement = document.getElementById('result');
-  resultElement.innerText = 'Loading MobileNet...';
+  // const resultElement = document.getElementById('result');
+  // resultElement.innerText = 'Loading MobileNet...';
 
   const mobileNet = new MobileNet();
   console.time('Loading of model');
@@ -41,22 +50,20 @@ captureButton.addEventListener('click', async () => {
 
   const pixels = tfc.fromPixels(snapshotCanvas);
 
-  console.time('First prediction');
+  console.time('prediction');
   let result = mobileNet.predict(pixels);
   const topK = mobileNet.getTopKClasses(result, 1);
   console.log(topK[0].label);
-  console.timeEnd('First prediction');
+  console.timeEnd('prediction');
 
-  resultElement.innerText = '';
-  topK.forEach(x => {
-    resultElement.innerText += `${x.value.toFixed(3)}: ${x.label}\n`;
-  });
+  // resultElement.innerText = '';
+  // topK.forEach(x => {
+  //   resultElement.innerText += `${x.value.toFixed(3)}: ${x.label}\n`;
+  // });
 
-  // console.time('Subsequent predictions');
-  // result = mobileNet.predict(pixels);
-  // const secondTopK = mobileNet.getTopKClasses(result, 1);
-  // console.log(secondTopK[0].label);
-  // console.timeEnd('Subsequent predictions');
+  loaderElement.style.display = "none";
+  var model = document.getElementById("3d-model");
+  model.setAttribute("src", "#" + topK[0].label)
 
   mobileNet.dispose();
 });

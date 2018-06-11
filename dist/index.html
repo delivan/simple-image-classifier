@@ -24,7 +24,7 @@ limitations under the License.
     <meta name="theme-color" content="#000000">
     <link rel="stylesheet" type="text/css" href="/ai4ar.66dfe5e5.css">
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
     <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
     <script src="https://prashant-andani.github.io/AR.js/aframe/build/aframe-ar.min.js"></script>
     <title>
@@ -32,7 +32,6 @@ limitations under the License.
     </title>
   <script src="/ai4ar.66dfe5e5.js"></script></head>
   <body>
-
     <main class="main">
       <div id="header">
         <div id="header-content">
@@ -40,32 +39,41 @@ limitations under the License.
         </div>
       </div>
       <div id="content">
-          <p>
-            <div id="result-wrap" style="display:none;">
-              <canvas id="snapshot" width="256" height="256"></canvas>
-              <div id="result"></div>
-              <p style="font-size:1em; font-weight:600">Note: Scan the hiro marker</p>
-            </div>
-          </p>
-          <div class="gotit btn custom-button" id="capture">Start</div>
+          <div id="content-wrap">
+            <canvas style="display: none;" id="snapshot" width="256" height="256"></canvas>
+            <!-- <div id="result"></div> -->
+            <p>
+              사용 방법
+            </p>
+            <ol>
+              <li>AR로 띄우고 싶은 물체에 카메라를 향하세요.</li>
+              <li>오른쪽 하단의 찰칵! 버튼을 누르세요.</li>
+              <li>G 마커에 카메라를 향하세요.</li>
+            </ol>
+            <div class="gotit btn custom-button" id="iknow">알겠어요</div>
+          </div>
+      </div>
+      <div id="loader" style="display: none;"></div>
+        <div id="footer">
+          <div id="footer-content">
+            <div class="gotit btn custom-button" id="capture">찰칵!</div>
+          </div>
         </div>
     </main>
 
-    <a-scene embedded="" arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false;" hidden="">
+    <a-scene embedded="" arjs="" hidden="">
       <a-assets>
-        <a-asset-item id="backpack" src="%PUBLIC_URL%/assets/backpack/scene.gltf"></a-asset-item>
-        <a-asset-item id="chair" src="/assets/chair/scene.gltf"></a-asset-item>
-        <a-asset-item id="desk" src="/assets/desk/scene.gltf"></a-asset-item>
-        <a-asset-item id="keyboard" src="/assets/keyboard/scene.gltf"></a-asset-item>
-        <a-asset-item id="laptop" src="/assets/laptop/scene.gltf"></a-asset-item>
-        <a-asset-item id="monitor" src="/assets/monitor/scene.gltf"></a-asset-item>
-        <a-asset-item id="mouse" src="/assets/mouse/scene.gltf"></a-asset-item>
-        <a-asset-item id="note" src="/assets/note/scene.gltf"></a-asset-item>
-        <a-asset-item id="pen" src="/assets/pen/scene.gltf"></a-asset-item>
-        <a-asset-item id="smartphone" src="/assets/smartphone/scene.gltf"></a-asset-item>
+        <a-asset-item id="backpack" src="https://raw.githubusercontent.com/hyuk22/AI4AR/master/assets/backpack/scene.gltf"></a-asset-item>
+        <a-asset-item id="keyboard" src="https://raw.githubusercontent.com/hyuk22/AI4AR/master/assets/keyboard/scene.gltf"></a-asset-item>
+        <a-asset-item id="laptop" src="https://raw.githubusercontent.com/hyuk22/AI4AR/master/assets/laptop/scene.gltf"></a-asset-item>
+        <a-asset-item id="monitor" src="https://raw.githubusercontent.com/hyuk22/AI4AR/master/assets/monitor/scene.gltf"></a-asset-item>
+        <a-asset-item id="mouse" src="https://raw.githubusercontent.com/hyuk22/AI4AR/master/assets/mouse/scene.gltf"></a-asset-item>
+        <a-asset-item id="note" src="https://raw.githubusercontent.com/hyuk22/AI4AR/master/assets/note/scene.gltf"></a-asset-item>
+        <a-asset-item id="pen" src="https://raw.githubusercontent.com/hyuk22/AI4AR/master/assets/pen/scene.gltf"></a-asset-item>
+        <a-asset-item id="smartphone" src="https://raw.githubusercontent.com/hyuk22/AI4AR/master/assets/smartphone/scene.gltf"></a-asset-item>
       </a-assets>
       <a-marker preset="hiro">
-        <a-gltf-model src="#backpack"></a-gltf-model>
+        <a-gltf-model src="#laptop" id="3d-model"></a-gltf-model>
       </a-marker>
       <a-entity camera=""></a-entity>
     </a-scene>
