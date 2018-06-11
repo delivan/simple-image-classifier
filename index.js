@@ -67,11 +67,17 @@ captureButton.addEventListener('click', async () => {
     case 'keyboard', 'mouse', 'pen':
       model.setAttribute("scale", "0.1 0.1 0.1");
       break;
-    case 'smartphone':
+    case 'laptop':
       model.setAttribute("scale", "0.5 0.5 0.5");
       break;
     case 'monitor':
       model.setAttribute("scale", "0.03 0.03 0.03");
+      break;
+    case 'note':
+      model.setAttribute("scale", "0.4 0.4 0.4");
+      break;
+    case 'smartphone':
+      model.setAttribute("scale", "0.2 0.2 0.2");
       break;
     default:
       model.setAttribute("scale", "1 1 1");
