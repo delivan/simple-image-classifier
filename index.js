@@ -40,9 +40,6 @@ captureButton.addEventListener('click', async () => {
       snapshotCanvas.height);
   imageObj.src = snapshotCanvas.toDataURL();
 
-  // const resultElement = document.getElementById('result');
-  // resultElement.innerText = 'Loading MobileNet...';
-
   const mobileNet = new MobileNet();
   console.time('Loading of model');
   await mobileNet.load();
@@ -56,34 +53,43 @@ captureButton.addEventListener('click', async () => {
   console.log(topK[0].label);
   console.timeEnd('prediction');
 
-  // resultElement.innerText = '';
-  // topK.forEach(x => {
-  //   resultElement.innerText += `${x.value.toFixed(3)}: ${x.label}\n`;
-  // });
-
   loaderElement.style.display = "none";
   var model = document.getElementById("3d-model");
-  switch(topK[0].label) {
-    case 'keyboard', 'mouse', 'pen':
+  var src = topK[0].label;
+  switch(src) {
+    case 'pen':
       model.setAttribute("scale", "0.1 0.1 0.1");
+      model.setAttribute("src", "#" + src);
       break;
     case 'laptop':
       model.setAttribute("scale", "0.5 0.5 0.5");
+      model.setAttribute("src", "#" + src);
       break;
     case 'monitor':
       model.setAttribute("scale", "0.03 0.03 0.03");
+      model.setAttribute("src", "#" + src);
+      break;
+    case 'mouse':
+      model.setAttribute("scale", "0.07 0.07 0.07");
+      model.setAttribute("src", "#" + src);
       break;
     case 'note':
       model.setAttribute("scale", "0.4 0.4 0.4");
+      model.setAttribute("src", "#" + src);
       break;
     case 'smartphone':
-      model.setAttribute("scale", "0.2 0.2 0.2");
+      model.setAttribute("scale", "0.3 0.3 0.3");
+      model.setAttribute("src", "#" + src);
+      break;
+    case 'keyboard':
+      model.setAttribute("scale", "0.1 0.1 0.1");
+      model.setAttribute("src", "#" + src);
       break;
     default:
       model.setAttribute("scale", "1 1 1");
+      model.setAttribute("src", "#" + src);
       break;
   }
-  model.setAttribute("src", "#" + topK[0].label)
 
   mobileNet.dispose();
 });

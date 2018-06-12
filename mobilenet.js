@@ -15,7 +15,7 @@
  * =============================================================================
  */
 
-import {loadFrozenModel, NamedTensorMap} from '@tensorflow/tfjs-converter';
+import {loadFrozenModel} from '@tensorflow/tfjs-converter';
 import * as tfc from '@tensorflow/tfjs-core';
 import {IMAGENET_CLASSES} from './imagenet_classes';
 
@@ -34,21 +34,13 @@ export class MobileNet {
         GOOGLE_CLOUD_STORAGE_DIR + MODEL_FILE_URL,
         GOOGLE_CLOUD_STORAGE_DIR + WEIGHT_MANIFEST_FILE_URL);
   }
-  
 
   dispose() {
     if (this.model) {
       this.model.dispose();
     }
   }
-  /**
-   * Infer through MobileNet. This does standard ImageNet pre-processing before
-   * inferring through the model. This method returns named activations as well
-   * as softmax logits.
-   *
-   * @param input un-preprocessed input Array.
-   * @return The softmax logits.
-   */
+
   predict(input) {
     const preprocessedInput = tfc.div(
         tfc.sub(input.asType('float32'), PREPROCESS_DIVISOR),
@@ -67,11 +59,9 @@ export class MobileNet {
     for (let i = 0; i < values.length; i++) {
       predictionList.push({value: values[i], index: i});
     }
-    predictionList = predictionList
-                         .sort((a, b) => {
+    predictionList = predictionList.sort((a, b) => {
                            return b.value - a.value;
-                         })
-                         .slice(0, topK);
+                         }).slice(0, topK);
 
     return predictionList.map(x => {
       return {label: IMAGENET_CLASSES[x.index], value: x.value};
