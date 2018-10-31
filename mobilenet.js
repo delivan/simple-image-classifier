@@ -27,7 +27,7 @@ const OUTPUT_NODE_NAME = 'final_result';
 const PREPROCESS_DIVISOR = tfc.scalar(255 / 2);
 
 export class MobileNet {
-  constructor() {}
+  constructor() { }
 
   async load() {
     this.model = await loadFrozenModel(
