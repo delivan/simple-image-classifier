@@ -1,5 +1,6 @@
-// import * as tfc from "@tensorflow/tfjs-core";
-// import { MobileNet } from "./mobilenet";
+import * as tfc from "@tensorflow/tfjs-core";
+import './index.css';
+import { MobileNet } from "./mobilenet";
 
 var snapshotCanvas = document.getElementById("snapshot");
 var captureButton = document.getElementById("capture");

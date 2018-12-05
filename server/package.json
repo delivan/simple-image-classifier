@@ -1,0 +1,23 @@
+{
+  "name": "ai4ar-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --mode development",
+    "start": "nodemon dist/bundle.js --exec babel-node"
+  },
+  "author": "hyuk22",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.4"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.2.0",
+    "@babel/node": "^7.2.0",
+    "@babel/preset-env": "^7.2.0",
+    "webpack": "^4.27.0",
+    "webpack-cli": "^3.1.2",
+    "webpack-node-externals": "^1.7.2"
+  }
+}

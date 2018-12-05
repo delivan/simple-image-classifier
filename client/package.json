@@ -2,18 +2,28 @@
   "name": "ai4ar-client",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "build": "webpack",
-    "dev": "webpack-dev-server --open --progress"
+    "build": "webpack --mode development",
+    "start": "webpack-dev-server --mode development --open --progress --host 0.0.0.0 --port 3000"
   },
   "author": "hyuk22",
   "license": "MIT",
   "devDependencies": {
-    "babel-core": "^6.26.3",
+    "@babel/core": "^7.2.0",
+    "@babel/preset-env": "^7.2.0",
     "babel-loader": "^8.0.4",
-    "babel-preset-env": "^1.7.0",
+    "css-loader": "^1.0.1",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
+    "file-loader": "^2.0.0",
+    "html-webpack-plugin": "^3.2.0",
+    "style-loader": "^0.23.1",
     "webpack": "^4.27.0",
+    "webpack-cli": "^3.1.2",
     "webpack-dev-server": "^3.1.10"
+  },
+  "dependencies": {
+    "@tensorflow/tfjs-converter": "^0.7.0",
+    "@tensorflow/tfjs-core": "^0.14.0"
   }
 }
