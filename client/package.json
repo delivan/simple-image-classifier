@@ -5,7 +5,8 @@
   "main": "app.js",
   "scripts": {
     "build": "webpack --mode development",
-    "start": "webpack-dev-server --mode development --open --progress --host 0.0.0.0 --port 3000"
+    "start": "webpack-dev-server --mode development --open --progress",
+    "goorm-start": "webpack-dev-server --mode development --open --progress --host 0.0.0.0 --port 3000"
   },
   "author": "hyuk22",
   "license": "MIT",
@@ -23,6 +24,7 @@
     "webpack-dev-server": "^3.1.10"
   },
   "dependencies": {
+    "@babel/polyfill": "^7.0.0",
     "@tensorflow/tfjs-converter": "^0.7.0",
     "@tensorflow/tfjs-core": "^0.14.0"
   }

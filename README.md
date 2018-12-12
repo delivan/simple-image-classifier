@@ -1,7 +1,25 @@
-# Image classifier using Tensorflowjs and arjs
+# Image classifier using Tensorflow.js and ar.js
 
-1. retrain MobileNet model on own data using Tensorflow
-2. generate web friendly model by tfjs-conveter
-3. store web-model at google cloud
-4. change own google cloud stroage url in code
-5. try it
+It was inspired by [Tensorflow.js example code](https://github.com/google/emoji-scavenger-hunt)
+
+1. Create data and Save to client/training/data
+2. Retrain MobileNet model on own data using Docker
+
+```
+cd client/training
+docker build -t model-builder .
+docker run -v /path/to/data:/data -it model-builder
+```
+
+3. Build client source
+
+```
+cd client
+npm run build
+```
+
+4. Run
+
+```
+npm start
+```

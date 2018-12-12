@@ -1,6 +1,6 @@
 const path = require("path");
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
   entry: path.resolve(__dirname, "src", "app.js"),
@@ -19,25 +19,25 @@ module.exports = {
       {
         test: /\.css$/,
         use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: 'css-loader'
-        }),
+          fallback: "style-loader",
+          use: "css-loader"
+        })
       }
     ]
   },
   plugins: [
     new ExtractTextPlugin({
-      filename: 'index.css',
+      filename: "index.css"
     }),
-    new HtmlWebpackPlugin({ 
-      filename: 'index.html',
-      template: path.resolve(__dirname, "src", "index.html"),
+    new HtmlWebpackPlugin({
+      filename: "index.html",
+      template: path.resolve(__dirname, "src", "index.html")
     })
   ],
   devServer: {
     contentBase: path.resolve(__dirname, "dist"),
     port: 3000,
     compress: true,
-    public: "ai4ar.dev.goorm.io"
+    allowedHosts: ["ai4ar.dev.goorm.io"]
   }
 };
