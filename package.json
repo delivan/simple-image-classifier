@@ -1,5 +1,5 @@
 {
-  "name": "ai4ar-client",
+  "name": "simple-image-classifier",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
