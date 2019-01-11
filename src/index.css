@@ -13,26 +13,20 @@ body {
   position: relative;
 }
 
-.a-enter-vr-button {
-  display: none !important;
-}
-
 .btn {
   float: right;
+  right: 1rem;
   user-select: none;
   cursor: pointer;
   box-sizing: border-box;
-  width: 50px;
+  width: 70px;
   height: 30px;
   background: #f45;
   text-align: center;
   padding: 8px 10px;
   transition: all 0.2s;
-}
-
-.custom-button {
-  right: 1rem;
-  width: 70px;
+  font-size: 1em;
+  color: #ffffff;
 }
 
 #content {
@@ -62,13 +56,6 @@ body {
 
 #content #content-wrap ol li {
   margin-bottom: 5px;
-}
-
-.gotit {
-  text-align: center;
-  width: 80px;
-  font-size: 1em;
-  color: #ffffff;
 }
 
 .links {

@@ -1,5 +1,4 @@
 node_modules/
 dist/
 .cache/
-.gitignore
-client/training/data
+training/data

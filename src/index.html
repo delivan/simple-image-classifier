@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,maximum-scale=1,shrink-to-fit=no,user-scalable=no,minimal-ui"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="theme-color" content="#000000" />
+    <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
+    <script src="https://prashant-andani.github.io/AR.js/aframe/build/aframe-ar.min.js"></script>
+    <title>간단 이미지 분류기</title>
+  </head>
+  <body>
+    <main class="main">
+      <div id="header"><div id="header-content">간단 이미지 분류기</div></div>
+      <div id="content">
+        <div id="content-wrap">
+          <canvas
+            style="display: none;"
+            id="snapshot"
+            width="224"
+            height="224"
+          ></canvas>
+          <p>사용 방법</p>
+          <ul>
+            <li>오른쪽 하단의 찰칵! 버튼을 누르세요.</li>
+          </ul>
+          <p>가능한 것</p>
+          <ul>
+            <li>가방, 키보드, 노트북, 모니터, 마우스, 노트, 펜, 스마트폰</li>
+          </ul>
+          <div class="btn" id="close">닫기</div>
+        </div>
+      </div>
+      <div id="loader" style="display: none;"></div>
+      <div id="footer">
+        <div id="footer-content"><div class="btn" id="capture">찰칵!</div></div>
+      </div>
+    </main>
+    <a-scene embedded arjs hidden> <a-entity camera></a-entity> </a-scene>
+  </body>
+  <script src="/dist/bundle.js"></script>
+</html>
